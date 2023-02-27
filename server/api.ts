@@ -22,9 +22,10 @@ const appRouter = t.router({
 		}),
 })
 const app = express()
+app.use(cors({ origin: 'http://localhost:5173' }))
 
 app.use('/trpc', createExpressMiddleware({ router: appRouter }))
 
-app.use(cors({ origin: 'http://localhost:5173' }))
-
 app.listen(3000)
+
+export type AppRouter = typeof appRouter
