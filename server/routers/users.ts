@@ -11,6 +11,7 @@ export const userRouter = t.router({
 	}),
 	update: userProcedure
 		.input(z.object({ name: z.string() }))
+		.output(z.object({ name: z.string(), id: z.string() }))
 		.mutation((req) => {
 			console.log(
 				`Updating user ${req.input.userId} to have name ${req.input.name}`
